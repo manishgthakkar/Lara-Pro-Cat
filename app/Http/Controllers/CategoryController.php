@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        
+        // dd();
         if(request()->ajax()) {
             return datatables()->of(Category::select('*'))
             ->addColumn('checkbox', function ($item) {
