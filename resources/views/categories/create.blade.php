@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left mb-2">
-            <h2>Add Company</h2>
+            <h2>Add Category</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('categories.index') }}"> Back</a>
@@ -27,8 +27,8 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Category Name:</strong>
-                <input type="text" name="name" class="form-control" placeholder="Category name" id="name">
-                @error('name')
+                <input type="text" name="cat_name" class="form-control" placeholder="Category name" id="name">
+                @error('cat_name')
                  <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
             </div>
@@ -37,7 +37,7 @@
             <div class="form-group">
                 <strong>Category Image : </strong>
                  <input type="file" name="image" class="form-control" placeholder="Category Image" id="image">
-                @error('email')
+                @error('image')
                   <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                @enderror
             </div>
@@ -51,7 +51,7 @@
                     <option value="2">Laptop</option>
                     <option value="3">Mobile</option>
                 </select>
-                @error('address')
+                @error('parent_cat')
                  <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
             </div>
