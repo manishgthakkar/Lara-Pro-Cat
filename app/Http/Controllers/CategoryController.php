@@ -11,7 +11,6 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        
         if(request()->ajax()) {
             return datatables()->of(Category::select('*'))
             ->addColumn('checkbox', function ($item) {
@@ -45,7 +44,7 @@ class CategoryController extends Controller
     {
         // dd($request);
         $request->validate([
-            'name' => 'required',
+            'cat_name' => 'required|unique:categories',
             'image' => 'required',
             'parent_cat' => 'required'
         ]);
@@ -78,14 +77,14 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required',
+            'cat_name' => 'required',
             'image' => 'required',
             'parent_cat' => 'required'
         ]);
         
         $category = Category::find($id);
 
-        $category->name = $request->name;
+        $category->cat_name = $request->cat_name;
         $category->parent_cat = $request->parent_cat;
 
         if ($image = $request->file('image')) {
@@ -94,6 +93,7 @@ class CategoryController extends Controller
             $image->move($destinationPath, $profileImage);
             $category->image = "$profileImage";
         }
+        // dd($category);
 
         $category->save();
     

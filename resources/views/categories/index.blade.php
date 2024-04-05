@@ -89,7 +89,7 @@ $(document).on('click','#selectall', function() {
            columns: [
             // { data: 'id', name: 'id' },
                     { data: 'checkbox', name: 'checkbox',orderable: false, searchable: false },
-                    { data: 'name', name: 'name' },
+                    { data: 'cat_name', name: 'cat_name' },
                     { data: 'image', name: 'image' },
                     { data: 'parent_cat', name: 'parent_cat' },
                     {data: 'action', name: 'action', orderable: false, searchable: false},
